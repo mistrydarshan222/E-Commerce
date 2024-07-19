@@ -16,17 +16,6 @@
 
 -------------------------------------------------------------------------------------
 
-# Project Setup
-
-**Project Initialization:**  
-A repository was created on GitHub and cloned to the local machine.
-
-## Frontend Setup
-Initialized ReactJS project.
-
-## Backend Setup
-Initialized Node.js project with Express and connected to MongoDB (Atlas).
-
 -------------------------------------------------------------------------------------
 
 # Database Schema Design

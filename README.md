@@ -1,10 +1,13 @@
 **##E-Commerce Project**
 
 Student Name: Darshankumar Hiteshbhai Mistry
+
 Student Number: 8967753
+
 Date: 7 July 2024 
 ------------------------------------------------------------------------------------
 **# Technology Stack**
+
 Frontend: ReactJS
 Backend: Node.js with Express
 Database: MongoDB (Atlas)

@@ -1,4 +1,4 @@
-# **##E-Commerce Project**
+# **E-Commerce Project**
 
 Student Name: Darshankumar Hiteshbhai Mistry
 
@@ -12,6 +12,7 @@ Date: 7 July 2024
 Frontend: ReactJS
 Backend: Node.js with Express
 Database: MongoDB (Atlas)
+
 -------------------------------------------------------------------------------------
 # Project Setup
 Project Initialization:
@@ -20,10 +21,10 @@ A repository was created on GitHub and cloned to the local machine.
 # Frontend Setup:
 Initialized ReactJS project.
 
-**Backend Setup:**
+# Backend Setup:
 Initialized Node.js project with Express and connected to MongoDB (Atlas).
 -------------------------------------------------------------------------------------
-**## Database Schema Design**
+# Database Schema Design
 
 # Products Schema (MongoDB)
 name: String

@@ -12,7 +12,7 @@
 
 **Frontend:** ReactJS  
 **Backend:** Node.js with Express  
-**Database:** MongoDB (Atlas)
+**Database:** MongoDB 
 
 -------------------------------------------------------------------------------------
 

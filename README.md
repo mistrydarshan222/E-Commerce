@@ -31,11 +31,13 @@
 - `password: String`
 - `email: String`
 
-## Orders Schema (MongoDB)
-- `order_id: String`
-- `user_id: String`
-- `product_id: String`
-- `quantity: Number`
-- `order_date: Date`
+### Orders Schema (MongoDB)
+- `order_id`: String
+- `user_email`: String
+- `quantity`: Number
+- `order_date`: Date
+
+### Categories Schema (MongoDB)
+- `category_name`: String
 
 -------------------------------------------------------------------------------------

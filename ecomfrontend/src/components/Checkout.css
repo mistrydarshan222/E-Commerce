@@ -1,0 +1,35 @@
+.cart-summary {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 2rem 0;
+  }
+  
+  .cart-summary h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .cart-summary ul {
+    list-style: none;
+  }
+  
+  .cart-summary li {
+    margin-bottom: 1rem;
+  }
+  
+  .cart-summary button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cart-summary button:hover {
+    background: #ff6347;
+  }
+  

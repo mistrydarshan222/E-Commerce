@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import api from '../services/api';
 import './ProductList.css';
 
-const ProductList = () => {
+const ProductListPage = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -59,4 +59,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default ProductListPage;

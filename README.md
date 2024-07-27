@@ -26,18 +26,9 @@
 - `stock: Number`
 - `imageUrl: String`
 
-## Users Schema (MongoDB)
-- `username: String`
-- `password: String`
-- `email: String`
-
-### Orders Schema (MongoDB)
-- `order_id`: String
-- `user_email`: String
-- `quantity`: Number
-- `order_date`: Date
-
 ### Categories Schema (MongoDB)
 - `category_name`: String
 
 -------------------------------------------------------------------------------------
+
+Github Repo Link :- https://github.com/mistrydarshan222/E-Commerce

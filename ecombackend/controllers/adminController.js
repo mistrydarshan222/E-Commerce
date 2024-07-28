@@ -56,7 +56,18 @@ const deleteProduct = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
-const getProductById = async (req, res) => {
+
+const getProducts = async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
+const getProduct = async (req, res) => {
   const { id } = req.params;
   try {
     const product = await Product.findById(id);
@@ -74,6 +85,6 @@ module.exports = {
   updateProduct,
   deleteProduct,
   getProducts,
-  getProductById, // Add this
+  getProduct,
   upload
 };

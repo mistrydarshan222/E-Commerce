@@ -53,7 +53,7 @@ const AdminPage = () => {
       .catch(error => console.error('Error updating product:', error));
     } else {
       api.post('/products', formData, {
-        headers: {
+        hleaders: {
           'Content-Type': 'multipart/form-data'
         }
       })
@@ -65,7 +65,8 @@ const AdminPage = () => {
     }
   };
 
-  const handleUpdate = (product) => {
+  const handleUpdate = (product) => { 
+    console.log(product);
     setEditMode(true);
     setCurrentProductId(product._id);
     setForm({
@@ -74,7 +75,7 @@ const AdminPage = () => {
       price: product.price,
       category: product.category,
       stock: product.stock,
-      image: null // this will be reset when the user selects a new file
+      image: null
     });
   };
 
@@ -101,7 +102,9 @@ const AdminPage = () => {
         <input type="number" name="price" placeholder="Price" value={form.price} onChange={handleChange} />
         <select name="category" value={form.category} onChange={handleChange}>
           <option value="">Select Category</option>
+          <option key="Demo" value="Demo">Demo</option>
           {categories.map(category => (
+             
             <option key={category._id} value={category.name}>{category.name}</option>
           ))}
         </select>

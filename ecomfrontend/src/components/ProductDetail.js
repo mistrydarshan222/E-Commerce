@@ -16,6 +16,7 @@ const ProductDetail = () => {
   }, [id]);
 
   const addToCart = () => {
+
     dispatch({ type: 'ADD_TO_CART', product: { ...product, quantity: 1 } });
   };
 

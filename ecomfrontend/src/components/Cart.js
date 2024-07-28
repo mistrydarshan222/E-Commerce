@@ -22,12 +22,12 @@ const Cart = () => {
         <ul>
           {cart.map(item => (
             <li key={item._id} className="cart-item">
-              <img src={item.imageUrl} alt={item.name} />
+              <img src={window.location.origin + "/"+item.imageUrl} alt={item.name} />
               <div>
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
                 <p>
-                  Quantity: <input type="number" value={item.quantity} onChange={(e) => adjustQuantity(item._id, e.target.value)} />
+                  Quantity: <input type="number" value={item.quantity} onChange={(e) => adjustQuantity(item._id, parseInt(e.target.value))} />
                 </p>
                 <button onClick={() => removeFromCart(item._id)}>Remove</button>
               </div>

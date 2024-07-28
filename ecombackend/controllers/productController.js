@@ -1,6 +1,8 @@
 const Product = require('../models/Product');
 const multer = require('multer');
+const path = require('path');
 
+// Configure multer for file storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/');
@@ -19,8 +21,10 @@ const createProduct = async (req, res) => {
 
   try {
     await product.save();
+    console.log('Product saved:', product); // Debug log
     res.status(201).json(product);
   } catch (err) {
+    console.error('Error saving product:', err); // Debug log
     res.status(400).json({ message: err.message });
   }
 };

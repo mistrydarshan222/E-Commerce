@@ -74,7 +74,7 @@ const AdminPage = () => {
       price: product.price,
       category: product.category,
       stock: product.stock,
-      image: product.imageUrl // this will be reset when the user selects a new file
+      image: null // this will be reset when the user selects a new file
     });
   };
 

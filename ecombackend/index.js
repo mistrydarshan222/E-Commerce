@@ -1,25 +1,24 @@
-require('dotenv').config();
 const express = require('express');
-const connectDB = require('./config/db');
-const productRoutes = require('./routes/productRoutes');
+const mongoose = require('mongoose');
 const adminRoutes = require('./routes/adminRoutes');
+const productRoutes = require('./routes/productRoutes');
 const cors = require('cors');
-const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const app = express();
 
-// Middleware
+app.use(express.json());
 app.use(cors());
-app.use(bodyParser.json());
+app.use('/uploads', express.static('uploads')); // Serve the uploaded images statically
 
-// Connect to MongoDB
-connectDB();
-
-// Routes
-app.use('/api/products', productRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/products', productRoutes); // Add this line
+
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

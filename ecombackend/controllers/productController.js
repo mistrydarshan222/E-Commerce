@@ -1,4 +1,60 @@
 const Product = require('../models/Product');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  }
+});
+
+const upload = multer({ storage }).single('image');
+
+const createProduct = async (req, res) => {
+  const { name, description, price, category, stock } = req.body;
+  const imageUrl = req.file ? `uploads/${req.file.filename}` : '';
+  const product = new Product({ name, description, price, category, stock, imageUrl });
+
+  try {
+    await product.save();
+    res.status(201).json(product);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+const updateProduct = async (req, res) => {
+  const { id } = req.params;
+  const { name, description, price, category, stock } = req.body;
+  const imageUrl = req.file ? `uploads/${req.file.filename}` : '';
+  const updateData = { name, description, price, category, stock, imageUrl };
+
+  try {
+    const product = await Product.findByIdAndUpdate(id, updateData, { new: true });
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+    res.json(product);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const product = await Product.findByIdAndDelete(id);
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+    res.json({ message: 'Product deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
 const getProducts = async (req, res) => {
   try {
@@ -9,21 +65,10 @@ const getProducts = async (req, res) => {
   }
 };
 
-const getProductById = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const product = await Product.findById(id);
-    if (!product) {
-      return res.status(404).json({ message: 'Product not found' });
-    }
-    res.json(product);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
-
 module.exports = {
+  createProduct,
+  updateProduct,
+  deleteProduct,
   getProducts,
-  getProductById
+  upload
 };

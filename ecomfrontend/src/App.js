@@ -1,11 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import ProductPage from './pages/ProductPage';
-import Cart from './components/Cart';
-import Checkout from './components/Checkout';
-import AdminPage from './pages/AdminPage';
 import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import AdminPage from './pages/AdminPage';
+import ProductListPage from './pages/ProductListPage';
+import ProductPage from './pages/ProductPage';
 
 function App() {
   return (
@@ -13,10 +12,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/products" element={<ProductListPage />} />
+        <Route path="/product/:id" element={<ProductPage />} /> {/* Add this route */}
       </Routes>
     </Router>
   );

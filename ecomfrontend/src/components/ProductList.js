@@ -28,21 +28,7 @@ const ProductListPage = () => {
 
   return (
     <div className="product-list">
-      <div className="category-filter">
-        <h2>Categories</h2>
-        <ul>
-          <li className={!selectedCategory ? 'selected' : ''} onClick={() => setSelectedCategory('')}>All</li>
-          {categories.map(category => (
-            <li
-              key={category._id}
-              className={selectedCategory === category.name ? 'selected' : ''}
-              onClick={() => setSelectedCategory(category.name)}
-            >
-              {category.name}
-            </li>
-          ))}
-        </ul>
-      </div>
+      
       <h2>Products</h2>
       <ul>
         {products.map(product => (

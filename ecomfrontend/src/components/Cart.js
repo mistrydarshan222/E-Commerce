@@ -22,7 +22,7 @@ const Cart = () => {
         <ul>
           {cart.map(item => (
             <li key={item._id} className="cart-item">
-              <img src={window.location.origin + "/"+item.imageUrl} alt={item.name} />
+              <img src={process.env.REACT_APP_BACKEND_URL+item.imageUrl} alt={item.name} />
               <div>
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>

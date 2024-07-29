@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
-import './ProductList.css';
+import './ProductList.css'; // Ensure the correct CSS file is imported
 
 const ProductListPage = () => {
   const [products, setProducts] = useState([]);
@@ -28,19 +28,18 @@ const ProductListPage = () => {
 
   return (
     <div className="product-list">
-      
       <h2>Products</h2>
-      <ul>
+      <div className="product-grid">
         {products.map(product => (
-          <li key={product._id} className="product">
+          <div key={product._id} className="product">
             <img src={`http://localhost:5000/${product.imageUrl}`} alt={product.name} />
             <h3>{product.name}</h3>
             <p>{product.description}</p>
             <p>${product.price}</p>
             <Link to={`/product/${product._id}`} className="details-button">View Details</Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

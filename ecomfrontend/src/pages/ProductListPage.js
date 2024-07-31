@@ -12,9 +12,9 @@ const ProductListPage = () => {
     api.get('/products')
       .then(response => {
         if (selectedCategory) {
-          setProducts(response.data.filter(product => product.category.name === selectedCategory));
+          setProducts(response.data.filter(product => product.category.name === selectedCategory).slice(0, 3));
         } else {
-          setProducts(response.data);
+          setProducts(response.data.slice(0, 3));
         }
       })
       .catch(error => console.error('Error fetching products:', error));
@@ -48,9 +48,9 @@ const ProductListPage = () => {
           <div key={product._id} className="product">
             <img src={`http://localhost:5000/${product.imageUrl}`} alt={product.name} />
             <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>Category: {product.category.name}</p>
-            <p>${product.price}</p>
+            <p className="description">{product.description}</p>
+            <p className="category">Category: {product.category.name}</p>
+            <p className="price">${product.price}</p>
             <Link to={`/product/${product._id}`} className="details-button">View Details</Link>
           </div>
         ))}

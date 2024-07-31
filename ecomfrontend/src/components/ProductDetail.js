@@ -16,7 +16,6 @@ const ProductDetail = () => {
   }, [id]);
 
   const addToCart = () => {
-
     dispatch({ type: 'ADD_TO_CART', product: { ...product, quantity: 1 } });
   };
 
@@ -24,12 +23,15 @@ const ProductDetail = () => {
 
   return (
     <div className="container product-details">
-      <img src={`http://localhost:5000/${product.imageUrl}`} alt={product.name} />
-      <div>
+      <div className="image-section">
+        <img src={`http://localhost:5000/${product.imageUrl}`} alt={product.name} />
+      </div>
+      <div className="info-section">
         <h2>{product.name}</h2>
-        <p>{product.description}</p>
-        <p>${product.price}</p>
-        <button onClick={addToCart}>Add to Cart</button>
+        <p className="price">${product.price}</p>
+        <p className="category">Category: {product.category.name}</p>
+        <p className="description">{product.description}</p>
+        <button className="add-to-cart-button" onClick={addToCart}>Add to Cart</button>
       </div>
     </div>
   );

@@ -69,11 +69,11 @@ const AdminPage = () => {
     setEditMode(true);
     setCurrentProductId(product._id);
     setForm({
-      name: product.name,
-      description: product.description,
-      price: product.price,
-      category: product.category._id,
-      stock: product.stock,
+      name: product.name || '',
+      description: product.description || '',
+      price: product.price || '',
+      category: product.category ? product.category._id : '',
+      stock: product.stock || '',
       image: null // this will be reset when the user selects a new file
     });
   };
@@ -133,7 +133,7 @@ const AdminPage = () => {
             <div>
               <h3>{product.name}</h3>
               <p>{product.description}</p>
-              <p>Category: {product.category.name}</p>
+              <p>Category: {product.category ? product.category.name : 'No category'}</p>
               <p>${product.price}</p>
               <button onClick={() => handleUpdate(product)}>Update</button>
               <button onClick={() => handleDelete(product._id)}>Delete</button>

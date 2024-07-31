@@ -47,7 +47,7 @@ const updateProduct = async (req, res) => {
       return res.status(400).json({ message: 'Invalid category' });
     }
 
-    const product = await Product.findByIdAndUpdate(id, updateData, { new: true });
+    const product = await Product.findByIdAndUpdate(id, updateData, { new: true }).populate('category', 'name');
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }

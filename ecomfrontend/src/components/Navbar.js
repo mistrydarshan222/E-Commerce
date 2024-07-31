@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
-import './Navbar.css'; // Import the CSS file
+import './Navbar.css'; 
 
 const Navbar = () => {
   const { getTotalQuantity } = useCart();
@@ -15,7 +15,8 @@ const Navbar = () => {
       </div>
       <div className="menu">
         <Link to="/">Home</Link>
-        <Link to="/admin">Admin</Link>
+        <Link to="/shop">Shop</Link>
+        {/* <Link to="/admin">Admin</Link> */}
       </div>
       <div className="cart">
         <Link to="/cart">

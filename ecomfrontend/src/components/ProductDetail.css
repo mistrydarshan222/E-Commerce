@@ -15,6 +15,7 @@
   overflow: hidden;
   max-width: 800px;
   width: 100%;
+  margin-top: 50px;
 }
 
 .image-section {
@@ -49,7 +50,7 @@
 }
 
 .info-section .category {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #888;
   margin-bottom: 1rem;
   font-weight: bold;

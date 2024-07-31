@@ -27,7 +27,7 @@ const Cart = () => {
           <ul className="cart-items">
             {cart.map(item => (
               <li key={item._id} className="cart-item">
-                <img src={`http://localhost:5000/${item.imageUrl}`} alt={item.name} />
+                <img src={`${process.env.REACT_APP_BACKEND_URL}${item.imageUrl}`} alt={item.name} />
                 <div className="item-details">
                   <h3>{item.name}</h3>
                   <p>${item.price}</p>

@@ -129,7 +129,7 @@ const AdminPage = () => {
       <ul>
         {products.map(product => (
           <li key={product._id} className="admin-product">
-            <img src={`http://localhost:5000/${product.imageUrl}`} alt={product.name} />
+            <img src={`${process.env.REACT_APP_BACKEND_URL}${product.imageUrl}`} alt={product.name} />
             <div>
               <h3>{product.name}</h3>
               <p>{product.description}</p>

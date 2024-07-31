@@ -21,7 +21,7 @@ const ShopPage = () => {
       <div className="product-grid">
         {products.map(product => (
           <div key={product._id} className="product">
-            <img src={`http://localhost:5000/${product.imageUrl}`} alt={product.name} />
+            <img src={`${process.env.REACT_APP_BACKEND_URL}${product.imageUrl}`} alt={product.name} />
             <h3>{product.name}</h3>
             <p className="description">{product.description}</p>
             <p className="category">Category: {product.category ? product.category.name : 'N/A'}</p>

@@ -24,7 +24,7 @@ const ProductDetail = () => {
   return (
     <div className="container product-details">
       <div className="image-section">
-        <img src={`http://localhost:5000/${product.imageUrl}`} alt={product.name} />
+        <img src={`${process.env.REACT_APP_BACKEND_URL}${product.imageUrl}`} alt={product.name} />
       </div>
       <div className="info-section">
         <h2>{product.name}</h2>

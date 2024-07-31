@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
-import './ProductListPage.css';
+import './ProductListPage.css'; // Ensure the correct CSS file is imported
 
 const ProductListPage = () => {
   const [products, setProducts] = useState([]);
@@ -12,7 +12,7 @@ const ProductListPage = () => {
     api.get('/products')
       .then(response => {
         if (selectedCategory) {
-          setProducts(response.data.filter(product => product.category === selectedCategory));
+          setProducts(response.data.filter(product => product.category.name === selectedCategory));
         } else {
           setProducts(response.data);
         }
@@ -28,8 +28,8 @@ const ProductListPage = () => {
 
   return (
     <div className="product-list">
+      <h2>Products</h2>
       <div className="category-filter">
-        <h2>Categories</h2>
         <ul>
           <li className={!selectedCategory ? 'selected' : ''} onClick={() => setSelectedCategory('')}>All</li>
           {categories.map(category => (
@@ -43,18 +43,18 @@ const ProductListPage = () => {
           ))}
         </ul>
       </div>
-      <h2>Products</h2>
-      <ul>
+      <div className="product-grid">
         {products.map(product => (
-          <li key={product._id} className="product">
+          <div key={product._id} className="product">
             <img src={`http://localhost:5000/${product.imageUrl}`} alt={product.name} />
             <h3>{product.name}</h3>
             <p>{product.description}</p>
+            <p>Category: {product.category.name}</p>
             <p>${product.price}</p>
             <Link to={`/product/${product._id}`} className="details-button">View Details</Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

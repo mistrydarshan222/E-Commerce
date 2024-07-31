@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const adminRoutes = require('./routes/adminRoutes');
 const productRoutes = require('./routes/productRoutes');
+const categoryRoutes = require('./routes/categoryRoutes'); // Add this line
 const cors = require('cors');
 require('dotenv').config();
 
@@ -13,6 +14,7 @@ app.use('/uploads', express.static('uploads')); // Serve the uploaded images sta
 
 app.use('/api/admin', adminRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/categories', categoryRoutes); // Add this line
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,

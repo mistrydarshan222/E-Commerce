@@ -53,7 +53,7 @@ const AdminPage = () => {
       .catch(error => console.error('Error updating product:', error));
     } else {
       api.post('/products', formData, {
-        hleaders: {
+        headers: {
           'Content-Type': 'multipart/form-data'
         }
       })
@@ -65,17 +65,16 @@ const AdminPage = () => {
     }
   };
 
-  const handleUpdate = (product) => { 
-    console.log(product);
+  const handleUpdate = (product) => {
     setEditMode(true);
     setCurrentProductId(product._id);
     setForm({
       name: product.name,
       description: product.description,
       price: product.price,
-      category: product.category,
+      category: product.category._id,
       stock: product.stock,
-      image: null
+      image: null // this will be reset when the user selects a new file
     });
   };
 
@@ -91,6 +90,14 @@ const AdminPage = () => {
     setCurrentProductId(null);
   };
 
+  const handleCategorySubmit = (e) => {
+    e.preventDefault();
+    const category = { name: form.category };
+    api.post('/categories', category)
+    .then(response => setCategories([...categories, response.data]))
+    .catch(error => console.error('Error creating category:', error));
+  };
+
   const { getRootProps, getInputProps } = useDropzone({ onDrop: handleFileChange });
 
   return (
@@ -102,10 +109,8 @@ const AdminPage = () => {
         <input type="number" name="price" placeholder="Price" value={form.price} onChange={handleChange} />
         <select name="category" value={form.category} onChange={handleChange}>
           <option value="">Select Category</option>
-          <option key="Demo" value="Demo">Demo</option>
           {categories.map(category => (
-             
-            <option key={category._id} value={category.name}>{category.name}</option>
+            <option key={category._id} value={category._id}>{category.name}</option>
           ))}
         </select>
         <input type="number" name="stock" placeholder="Stock" value={form.stock} onChange={handleChange} />
@@ -116,6 +121,10 @@ const AdminPage = () => {
         <button type="submit">{editMode ? 'Update Product' : 'Add Product'}</button>
         {editMode && <button type="button" onClick={resetForm}>Cancel Edit</button>}
       </form>
+      <form onSubmit={handleCategorySubmit} className="admin-form">
+        <input type="text" name="category" placeholder="New Category" onChange={handleChange} />
+        <button type="submit">Add Category</button>
+      </form>
       <h2>Products</h2>
       <ul>
         {products.map(product => (
@@ -124,6 +133,7 @@ const AdminPage = () => {
             <div>
               <h3>{product.name}</h3>
               <p>{product.description}</p>
+              <p>Category: {product.category.name}</p>
               <p>${product.price}</p>
               <button onClick={() => handleUpdate(product)}>Update</button>
               <button onClick={() => handleDelete(product._id)}>Delete</button>

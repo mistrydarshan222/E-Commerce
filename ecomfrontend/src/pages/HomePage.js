@@ -5,7 +5,7 @@ import './HomePage.css';
 const HomePage = () => {
   return (
     <div className="home-page"> 
-      <h1>Welcome to Our Store</h1>
+      <h1 className='hometitle'>Welcome to Darshan's Ecom</h1>
       <ProductList />
     </div>
   );

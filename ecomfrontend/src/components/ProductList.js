@@ -27,8 +27,7 @@ const ProductListPage = () => {
   }, []);
 
   return (
-    <div className="product-list">
-      <h2>Products</h2>
+    <div className="product-list">      
       <div className="category-filter">
         <ul>
           <li className={!selectedCategory ? 'selected' : ''} onClick={() => setSelectedCategory('')}>All</li>

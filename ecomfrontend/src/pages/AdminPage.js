@@ -125,6 +125,7 @@ const AdminPage = () => {
     }
   };
 
+
   const handleCategoryUpdate = (category) => {
     setCurrentCategoryId(category._id);
     setCategoryForm({ name: category.name });

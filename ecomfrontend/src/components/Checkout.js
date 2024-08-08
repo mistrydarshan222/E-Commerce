@@ -58,7 +58,7 @@ const Checkout = () => {
             <input type="text" name="cvv" value={paymentInfo.cvv} disabled />
           </label>
           <button type="button" onClick={handleCheckout}>
-            Checkout
+            Place Order
           </button>
         </div>
         <div className="cart-summary">

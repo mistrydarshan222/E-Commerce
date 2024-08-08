@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CartContext from '../contexts/CartContext';
 import './Cart.css'; // Import the CSS file
 
 const Cart = () => {
   const { cart, dispatch } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const removeFromCart = (id) => {
     dispatch({ type: 'REMOVE_FROM_CART', id });
@@ -15,6 +17,10 @@ const Cart = () => {
 
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+  };
+
+  const proceedToCheckout = () => {
+    navigate('/checkout');
   };
 
   return (
@@ -47,7 +53,7 @@ const Cart = () => {
           <div className="cart-summary">
             <h2>Order Summary</h2>
             <p>Total: ${calculateTotal()}</p>
-            <button className="checkout-button">Proceed to Checkout</button>
+            <button className="checkout-button" onClick={proceedToCheckout}>Proceed to Checkout</button>
           </div>
         </div>
       )}

@@ -1,35 +1,94 @@
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.checkout-container h1 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.checkout-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 80%;
+}
+
+.checkout-form {
+  background: #fff;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 60%;
+}
+
 .cart-summary {
-    background: #fff;
-    padding: 2rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 2rem 0;
-  }
-  
-  .cart-summary h2 {
-    margin-bottom: 1rem;
-  }
-  
-  .cart-summary ul {
-    list-style: none;
-  }
-  
-  .cart-summary li {
-    margin-bottom: 1rem;
-  }
-  
-  .cart-summary button {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .cart-summary button:hover {
-    background: #ff6347;
-  }
-  
+  background: #fff;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 35%;
+  align-self: flex-start; /* Ensures it aligns to the top of the form */
+}
+
+.checkout-form h2, .cart-summary h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.checkout-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+.checkout-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.checkout-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+
+.checkout-form button:hover {
+  background: #219150;
+}
+
+.cart-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-summary li {
+  margin-bottom: 1rem;
+}
+
+.cart-summary p {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 1rem;
+}

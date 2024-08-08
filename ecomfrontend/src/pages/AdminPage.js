@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import { useDropzone } from 'react-dropzone';
 import './AdminPage.css';
 
 const AdminPage = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [form, setForm] = useState({ name: '', description: '', price: '', category: '', stock: '', image: null });
@@ -11,8 +13,12 @@ const AdminPage = () => {
   const [currentProductId, setCurrentProductId] = useState(null);
 
   useEffect(() => {
-    fetchProducts();
-    fetchCategories();
+    if (!localStorage.getItem('adminLoggedIn')) {
+      navigate('/admin/login');
+    } else {
+      fetchProducts();
+      fetchCategories();
+    }
   }, []);
 
   const fetchProducts = () => {

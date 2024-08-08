@@ -28,10 +28,10 @@ const createProduct = async (req, res) => {
 
     const product = new Product({ name, description, price, category, stock, imageUrl });
     await product.save();
-    console.log('Product saved:', product); // Debug log
+    console.log('Product saved:', product);
     res.status(201).json(product);
   } catch (err) {
-    console.error('Error saving product:', err); // Debug log
+    console.error('Error saving product:', err);
     res.status(400).json({ message: err.message });
   }
 };
@@ -57,7 +57,7 @@ const updateProduct = async (req, res) => {
     }
     res.json(product);
   } catch (err) {
-    console.error('Error updating product:', err); // Debug log
+    console.error('Error updating product:', err); 
     res.status(400).json({ message: err.message });
   }
 };
@@ -72,7 +72,7 @@ const deleteProduct = async (req, res) => {
     }
     res.json({ message: 'Product deleted successfully' });
   } catch (err) {
-    console.error('Error deleting product:', err); // Debug log
+    console.error('Error deleting product:', err); 
     res.status(500).json({ message: err.message });
   }
 };
@@ -82,7 +82,7 @@ const getProducts = async (req, res) => {
     const products = await Product.find().populate('category', 'name');
     res.json(products);
   } catch (err) {
-    console.error('Error fetching products:', err); // Debug log
+    console.error('Error fetching products:', err); 
     res.status(500).json({ message: err.message });
   }
 };

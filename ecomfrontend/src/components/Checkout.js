@@ -4,19 +4,20 @@ import './Checkout.css';
 
 const Checkout = () => {
   const { cart } = useContext(CartContext);
-  const [userInfo, setUserInfo] = useState({
+  const [userInfo] = useState({
     name: 'Darshan Mistry',
     email: 'iam@darshanmistry.in',
     address: '300 Regina St, North - Waterloo',
   });
-  const [paymentInfo, setPaymentInfo] = useState({
+  const [paymentInfo] = useState({
     cardNumber: '1111 1111 1111 1111',
     expiryDate: '12/25',
     cvv: '123',
   });
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleCheckout = () => {
-    alert('Checkout process initiated. (No payment processing in this example)');
+    setShowPopup(true);
     console.log('User Info:', userInfo);
     console.log('Payment Info:', paymentInfo);
     console.log('Order Summary:', cart);
@@ -69,7 +70,11 @@ const Checkout = () => {
             <ul>
               {cart.map((item) => (
                 <li key={item._id}>
-                  <img className="product-image" src={`${process.env.REACT_APP_BACKEND_URL}${item.imageUrl}`} alt={item.name} />
+                  <img
+                    className="product-image"
+                    src={`${process.env.REACT_APP_BACKEND_URL}${item.imageUrl}`}
+                    alt={item.name}
+                  />
                   <div>
                     <h3>{item.name}</h3>
                     <p>${item.price}</p>
@@ -82,6 +87,50 @@ const Checkout = () => {
           <p className="total-price">Total: ${calculateTotal()}</p>
         </div>
       </div>
+
+      {showPopup && (
+        <div className="thank-you-popup">
+          <div className="popup-content">
+            <h2>Thank You for Your Order!</h2>
+            <p className="order-confirmation-message">
+              Your order has been placed successfully. Below are the details of your purchase.
+            </p>
+            <div className="popup-details">
+              <div className="order-summary">
+                <h3>Order Summary</h3>
+                <ul>
+                  {cart.map((item) => (
+                    <li key={item._id}>
+                      <img
+                        className="product-image"
+                        src={`${process.env.REACT_APP_BACKEND_URL}${item.imageUrl}`}
+                        alt={item.name}
+                      />
+                      <span>{item.name}</span>
+                      <span>${item.price}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="grand-total">
+                  Grand Total: <span>${calculateTotal()}</span>
+                </p>
+              </div>
+              <div className="order-details">
+                <h3>Order Details</h3>
+                <p><strong>Name:</strong> {userInfo.name}</p>
+                <p><strong>Email:</strong> {userInfo.email}</p>
+                <p><strong>Order Number:</strong> XX001123456</p>
+                <p><strong>Payment Method:</strong> Credit Card ending in {paymentInfo.cardNumber.slice(-4)}</p>
+                <p><strong>Shipment ID:</strong> S01745</p>
+                <p className="thank-you-message">
+                  We appreciate your business and hope you enjoy your purchase. If you have any questions, feel free to contact us.
+                </p>
+              </div>
+            </div>
+            <button onClick={() => setShowPopup(false)} className="close-popup-button">Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

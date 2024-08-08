@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import CartContext from '../contexts/CartContext';
-import './Cart.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
+import './Cart.css';
 
 const Cart = () => {
   const { cart, dispatch } = useContext(CartContext);
@@ -19,7 +19,7 @@ const Cart = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
-  const proceedToCheckout = () => {
+  const handleCheckout = () => {
     navigate('/checkout');
   };
 
@@ -30,30 +30,52 @@ const Cart = () => {
         <p>Your cart is empty</p>
       ) : (
         <div>
-          <ul className="cart-items">
-            {cart.map(item => (
-              <li key={item._id} className="cart-item">
-                <img src={`${process.env.REACT_APP_BACKEND_URL}${item.imageUrl}`} alt={item.name} />
-                <div className="item-details">
-                  <h3>{item.name}</h3>
-                  <p>${item.price}</p>
-                  <div className="quantity">
-                    Quantity:
+          <table className="cart-table">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map((item) => (
+                <tr key={item._id}>
+                  <td>
+                    <img src={`${process.env.REACT_APP_BACKEND_URL}${item.imageUrl}`} alt={item.name} />
+                    <span>{item.name}</span>
+                  </td>
+                  <td>${item.price}</td>
+                  <td>
                     <input
                       type="number"
                       value={item.quantity}
+                      min="1"
                       onChange={(e) => adjustQuantity(item._id, e.target.value)}
                     />
-                  </div>
-                  <button onClick={() => removeFromCart(item._id)}>Remove</button>
-                </div>
-              </li>
-            ))}
-          </ul>
+                  </td>
+                  <td>${(item.price * item.quantity).toFixed(2)}</td>
+                  <td>
+                    <button onClick={() => removeFromCart(item._id)}>X</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="cart-actions">
+            <button className="update-cart-button">Update Cart</button>
+            <button className="back-to-home-button" onClick={() => navigate('/')}>
+              Back to Home
+            </button>
+          </div>
           <div className="cart-summary">
-            <h2>Order Summary</h2>
+            <h2>Cart Totals</h2>
             <p>Total: ${calculateTotal()}</p>
-            <button className="checkout-button" onClick={proceedToCheckout}>Proceed to Checkout</button>
+            <button className="checkout-button" onClick={handleCheckout}>
+              Proceed to Checkout
+            </button>
           </div>
         </div>
       )}

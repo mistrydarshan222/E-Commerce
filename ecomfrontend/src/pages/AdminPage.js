@@ -9,8 +9,10 @@ const AdminPage = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [form, setForm] = useState({ name: '', description: '', price: '', category: '', stock: '', image: null });
+  const [categoryForm, setCategoryForm] = useState({ name: '' });
   const [editMode, setEditMode] = useState(false);
   const [currentProductId, setCurrentProductId] = useState(null);
+  const [currentCategoryId, setCurrentCategoryId] = useState(null);
 
   useEffect(() => {
     if (!localStorage.getItem('adminLoggedIn')) {
@@ -19,7 +21,7 @@ const AdminPage = () => {
       fetchProducts();
       fetchCategories();
     }
-  }, []);
+  }, [navigate]);
 
   const fetchProducts = () => {
     api.get('/products')
@@ -37,6 +39,10 @@ const AdminPage = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleCategoryChange = (e) => {
+    setCategoryForm({ ...categoryForm, [e.target.name]: e.target.value });
+  };
+
   const handleFileChange = (acceptedFiles) => {
     setForm({ ...form, image: acceptedFiles[0] });
   };
@@ -44,7 +50,11 @@ const AdminPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    Object.keys(form).forEach(key => formData.append(key, form[key]));
+    Object.keys(form).forEach(key => {
+      if (key !== 'image' || form[key] !== null) {
+        formData.append(key, form[key]);
+      }
+    });
 
     if (editMode) {
       api.put(`/products/${currentProductId}`, formData, {
@@ -98,10 +108,37 @@ const AdminPage = () => {
 
   const handleCategorySubmit = (e) => {
     e.preventDefault();
-    const category = { name: form.category };
-    api.post('/categories', category)
-    .then(response => setCategories([...categories, response.data]))
-    .catch(error => console.error('Error creating category:', error));
+    if (currentCategoryId) {
+      api.put(`/categories/${currentCategoryId}`, categoryForm)
+        .then(response => {
+          fetchCategories();
+          resetCategoryForm();
+        })
+        .catch(error => console.error('Error updating category:', error));
+    } else {
+      api.post('/categories', categoryForm)
+        .then(response => {
+          setCategories([...categories, response.data]);
+          resetCategoryForm();
+        })
+        .catch(error => console.error('Error creating category:', error));
+    }
+  };
+
+  const handleCategoryUpdate = (category) => {
+    setCurrentCategoryId(category._id);
+    setCategoryForm({ name: category.name });
+  };
+
+  const handleCategoryDelete = (id) => {
+    api.delete(`/categories/${id}`)
+      .then(() => setCategories(categories.filter(category => category._id !== id)))
+      .catch(error => console.error('Error deleting category:', error));
+  };
+
+  const resetCategoryForm = () => {
+    setCategoryForm({ name: '' });
+    setCurrentCategoryId(null);
   };
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop: handleFileChange });
@@ -128,8 +165,9 @@ const AdminPage = () => {
         {editMode && <button type="button" onClick={resetForm}>Cancel Edit</button>}
       </form>
       <form onSubmit={handleCategorySubmit} className="admin-form">
-        <input type="text" name="category" placeholder="New Category" onChange={handleChange} />
-        <button type="submit">Add Category</button>
+        <input type="text" name="name" placeholder="New Category" value={categoryForm.name} onChange={handleCategoryChange} />
+        <button type="submit">{currentCategoryId ? 'Update Category' : 'Add Category'}</button>
+        {currentCategoryId && <button type="button" onClick={resetCategoryForm}>Cancel Edit</button>}
       </form>
       <h2>Products</h2>
       <ul>
@@ -143,6 +181,18 @@ const AdminPage = () => {
               <p>${product.price}</p>
               <button onClick={() => handleUpdate(product)}>Update</button>
               <button onClick={() => handleDelete(product._id)}>Delete</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <h2>Categories</h2>
+      <ul>
+        {categories.map(category => (
+          <li key={category._id} className="admin-category">
+            <span>{category.name}</span>
+            <div>
+              <button onClick={() => handleCategoryUpdate(category)}>Update</button>
+              <button onClick={() => handleCategoryDelete(category._id)}>Delete</button>
             </div>
           </li>
         ))}

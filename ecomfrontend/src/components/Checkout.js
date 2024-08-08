@@ -4,15 +4,15 @@ import './Checkout.css';
 
 const Checkout = () => {
   const { cart } = useContext(CartContext);
-  const [userInfo, setUserInfo] = useState({ 
-    name: 'Darshan Mistry', 
-    email: 'iam@darshanmistry.in', 
-    address: '300 Regina St, North - Waterloo' 
+  const [userInfo, setUserInfo] = useState({
+    name: 'Darshan Mistry',
+    email: 'iam@darshanmistry.in',
+    address: '300 Regina St, North - Waterloo',
   });
-  const [paymentInfo, setPaymentInfo] = useState({ 
-    cardNumber: '1111 1111 1111 1111', 
-    expiryDate: '12/25', 
-    cvv: '123' 
+  const [paymentInfo, setPaymentInfo] = useState({
+    cardNumber: '1111 1111 1111 1111',
+    expiryDate: '12/25',
+    cvv: '123',
   });
 
   const handleCheckout = () => {
@@ -30,7 +30,7 @@ const Checkout = () => {
     <div className="checkout-container">
       <h1>Checkout</h1>
       <div className="checkout-form-container">
-        <form className="checkout-form">
+        <div className="checkout-form">
           <h2>Shipping Information</h2>
           <label>
             Name:
@@ -57,24 +57,29 @@ const Checkout = () => {
             CVV:
             <input type="text" name="cvv" value={paymentInfo.cvv} disabled />
           </label>
-          <button type="button" onClick={handleCheckout}>Checkout</button>
-        </form>
+          <button type="button" onClick={handleCheckout}>
+            Checkout
+          </button>
+        </div>
         <div className="cart-summary">
           <h2>Order Summary</h2>
           {cart.length === 0 ? (
             <p>Your cart is empty</p>
           ) : (
             <ul>
-              {cart.map(item => (
+              {cart.map((item) => (
                 <li key={item._id}>
-                  <h3>{item.name}</h3>
-                  <p>${item.price}</p>
-                  <p>Quantity: {item.quantity}</p>
+                  <img className="product-image" src={`${process.env.REACT_APP_BACKEND_URL}${item.imageUrl}`} alt={item.name} />
+                  <div>
+                    <h3>{item.name}</h3>
+                    <p>${item.price}</p>
+                    <p>Quantity: {item.quantity}</p>
+                  </div>
                 </li>
               ))}
             </ul>
           )}
-          <p>Total: ${calculateTotal()}</p>
+          <p className="total-price">Total: ${calculateTotal()}</p>
         </div>
       </div>
     </div>

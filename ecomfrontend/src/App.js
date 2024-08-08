@@ -8,7 +8,7 @@ import ProductPage from './pages/ProductPage';
 import Cart from './components/Cart';
 import ShopPage from './pages/ShopPage';
 import AdminLogin from './pages/AdminLogin';
-import Checkout from './components/Checkout'; // Import Checkout
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         <Route path="/products" element={<ProductListPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/shop" element={<ShopPage />} />
-        <Route path="/checkout" element={<Checkout />} /> {/* Checkout route */}
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Router>
   );

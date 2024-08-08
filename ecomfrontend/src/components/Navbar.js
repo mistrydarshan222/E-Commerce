@@ -16,11 +16,13 @@ const Navbar = () => {
       <div className="menu">
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
-        {/* <Link to="/admin">Admin</Link> */}
       </div>
       <div className="cart">
         <Link to="/cart">
           <img src="/images/shopping-cart.png" alt="Cart" /> ({getTotalQuantity()})
+        </Link>
+        <Link to="/admin/login" className="admin-login-link">
+          Admin Login
         </Link>
       </div>
     </nav>

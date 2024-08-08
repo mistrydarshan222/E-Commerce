@@ -1,9 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 .checkout-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
 }
 
 .checkout-container h1 {
@@ -14,7 +21,6 @@
 
 .checkout-form-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
   width: 80%;
@@ -25,7 +31,7 @@
   padding: 2rem;
   border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 60%;
 }
 
@@ -34,9 +40,9 @@
   padding: 2rem;
   border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 35%;
-  align-self: flex-start; /* Ensures it aligns to the top of the form */
+  align-self: flex-start;
 }
 
 .checkout-form h2, .cart-summary h2 {
@@ -84,10 +90,34 @@
 }
 
 .cart-summary li {
+  display: flex;
+  align-items: center;
   margin-bottom: 1rem;
+  gap:30px;
+}
+
+.product-image {
+  width: 80px; 
+  height: 80px; 
+  object-fit: cover;
+  margin-right: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
 }
 
 .cart-summary p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.total-price {
   font-size: 1.5rem;
   color: #333;
   margin-top: 1rem;

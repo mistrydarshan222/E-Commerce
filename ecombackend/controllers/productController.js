@@ -1,3 +1,4 @@
+// controllers/productController.js
 const Product = require('../models/Product');
 const Category = require('../models/Category');
 const multer = require('multer');
@@ -38,8 +39,11 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   const { id } = req.params;
   const { name, description, price, category, stock } = req.body;
-  const imageUrl = req.file ? `uploads/${req.file.filename}` : '';
-  const updateData = { name, description, price, category, stock, imageUrl };
+  const updateData = { name, description, price, category, stock };
+
+  if (req.file) {
+    updateData.imageUrl = `uploads/${req.file.filename}`;
+  }
 
   try {
     const categoryExists = await Category.findById(category);

@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Apply Poppins font to the whole body */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* You can also apply it to all headings and paragraphs for consistency */
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Poppins', sans-serif;
+}
+
 .App {
   text-align: center;
 }

@@ -127,3 +127,34 @@ button:hover {
     margin-right: 1rem;
   }
 }
+
+/* Ensure the root and body are 100% height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Flexbox container to make sure the footer stays at the bottom */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* The content wrapper pushes the footer down */
+.content-wrapper {
+  flex: 1;
+}
+
+/* Basic styling for the footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}

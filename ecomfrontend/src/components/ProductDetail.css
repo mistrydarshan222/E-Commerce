@@ -1,17 +1,10 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  background-color: #f1f1f1; 
-  
-} */
+
 
 .product-detail-container {
   width: 100%;
   padding: 2rem 5%;
-  background-color: white; /* Ensure the container background is white */
-  min-height: 100vh; /* Make sure the container takes at least the full height of the viewport */
+  background-color: white; 
+  /* min-height: 100vh;  */
   display: flex;
   flex-direction: column;
 }

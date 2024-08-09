@@ -25,7 +25,7 @@ const Footer = () => {
           <h3>Contact Us</h3>
           <ul>
             <li>Email: info@darshansecom.com</li>
-            <li>Phone: +1 (555) 555-5555</li>
+            <li>Phone: +1 (548) 333-1489</li>
             <li>Address: 300 Regina St, North - Waterloo</li>
           </ul>
         </div>

@@ -1,65 +1,134 @@
-  .container {
-    padding: 2rem 0;
-  }
+.admin-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
-  .admin-form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-  }
+.admin-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
 
-  .admin-form input, .admin-form select {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+.admin-subtitle {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
 
-  .admin-form button {
-    align-self: flex-start;
-  }
+.admin-form,
+.admin-product-form,
+.admin-category-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
 
-  .admin-product {
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-    padding: 1rem;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+.admin-input,
+.admin-select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
 
-  .admin-product img {
-    max-width: 100px;
-    margin-right: 1rem;
-  }
+.admin-button {
+  background-color: #27ae60;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
 
-  .admin-product div {
-    flex: 1;
-  }
+.cancel-button {
+  background-color: #e74c3c;
+}
 
-  .admin-product h3 {
-    margin-bottom: 0.5rem;
-  }
+.delete-button {
+  background-color: #e74c3c;
+}
 
-  .admin-product p {
-    margin-bottom: 0.5rem;
-  }
+.admin-button:hover {
+  background-color: #219150;
+}
 
-  .dropzone {
-    padding: 1rem;
-    border: 2px dashed #ccc;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-  }
+.cancel-button:hover,
+.delete-button:hover {
+  background-color: #c0392b;
+}
 
-  .dropzone p {
-    margin: 0;
-  }
-  
-  li.admin-category {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.admin-dropzone {
+  border: 2px dashed #ccc;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.admin-dropzone:hover {
+  border-color: #219150;
+}
+
+.admin-product-list,
+.admin-category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-product-item,
+.admin-category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.admin-product-info {
+  flex-grow: 1;
+}
+
+.admin-product-name {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.admin-product-description,
+.admin-product-category,
+.admin-product-price {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.admin-category-name {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.admin-category-actions {
+  display: flex;
+  gap: 1rem;
+}

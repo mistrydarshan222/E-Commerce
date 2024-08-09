@@ -90,7 +90,7 @@ const AdminPage = () => {
       price: product.price || '',
       category: product.category ? product.category._id : '',
       stock: product.stock || '',
-      image: null // this will be reset when the user selects a new file
+      image: null
     });
   };
 
@@ -145,55 +145,59 @@ const AdminPage = () => {
   const { getRootProps, getInputProps } = useDropzone({ onDrop: handleFileChange });
 
   return (
-    <div className="container">
-      <h1>Admin Panel</h1>
-      <form onSubmit={handleSubmit} className="admin-form">
-        <input type="text" name="name" placeholder="Name" value={form.name} onChange={handleChange} />
-        <input type="text" name="description" placeholder="Description" value={form.description} onChange={handleChange} />
-        <input type="number" name="price" placeholder="Price" value={form.price} onChange={handleChange} />
-        <select name="category" value={form.category} onChange={handleChange}>
+    <div className="admin-container">
+      <h1 className="admin-title">Admin Panel</h1>
+      
+      <form onSubmit={handleSubmit} className="admin-product-form">
+        <input type="text" className="admin-input" name="name" placeholder="Name" value={form.name} onChange={handleChange} />
+        <input type="text" className="admin-input" name="description" placeholder="Description" value={form.description} onChange={handleChange} />
+        <input type="number" className="admin-input" name="price" placeholder="Price" value={form.price} onChange={handleChange} />
+        <select className="admin-select" name="category" value={form.category} onChange={handleChange}>
           <option value="">Select Category</option>
           {categories.map(category => (
             <option key={category._id} value={category._id}>{category.name}</option>
           ))}
         </select>
-        <input type="number" name="stock" placeholder="Stock" value={form.stock} onChange={handleChange} />
-        <div {...getRootProps()} className="dropzone">
+        <input type="number" className="admin-input" name="stock" placeholder="Stock" value={form.stock} onChange={handleChange} />
+        <div {...getRootProps()} className="admin-dropzone">
           <input {...getInputProps()} />
           <p>Drag 'n' drop an image, or click to select one</p>
         </div>
-        <button type="submit">{editMode ? 'Update Product' : 'Add Product'}</button>
-        {editMode && <button type="button" onClick={resetForm}>Cancel Edit</button>}
+        <button type="submit" className="admin-button">{editMode ? 'Update Product' : 'Add Product'}</button>
+        {editMode && <button type="button" className="admin-button cancel-button" onClick={resetForm}>Cancel Edit</button>}
       </form>
-      <form onSubmit={handleCategorySubmit} className="admin-form">
-        <input type="text" name="name" placeholder="New Category" value={categoryForm.name} onChange={handleCategoryChange} />
-        <button type="submit">{currentCategoryId ? 'Update Category' : 'Add Category'}</button>
-        {currentCategoryId && <button type="button" onClick={resetCategoryForm}>Cancel Edit</button>}
+
+      <form onSubmit={handleCategorySubmit} className="admin-category-form">
+        <input type="text" className="admin-input" name="name" placeholder="New Category" value={categoryForm.name} onChange={handleCategoryChange} />
+        <button type="submit" className="admin-button">{currentCategoryId ? 'Update Category' : 'Add Category'}</button>
+        {currentCategoryId && <button type="button" className="admin-button cancel-button" onClick={resetCategoryForm}>Cancel Edit</button>}
       </form>
-      <h2>Products</h2>
-      <ul>
+
+      <h2 className="admin-subtitle">Products</h2>
+      <ul className="admin-product-list">
         {products.map(product => (
-          <li key={product._id} className="admin-product">
-            <img src={`${process.env.REACT_APP_BACKEND_URL}${product.imageUrl}`} alt={product.name} />
-            <div>
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <p>Category: {product.category ? product.category.name : 'No category'}</p>
-              <p>${product.price}</p>
-              <button onClick={() => handleUpdate(product)}>Update</button>
-              <button onClick={() => handleDelete(product._id)}>Delete</button>
+          <li key={product._id} className="admin-product-item">
+            <img className="admin-product-image" src={`${process.env.REACT_APP_BACKEND_URL}${product.imageUrl}`} alt={product.name} />
+            <div className="admin-product-info">
+              <h3 className="admin-product-name">{product.name}</h3>
+              <p className="admin-product-description">{product.description}</p>
+              <p className="admin-product-category">Category: {product.category ? product.category.name : 'No category'}</p>
+              <p className="admin-product-price">${product.price}</p>
+              <button className="admin-button" onClick={() => handleUpdate(product)}>Update</button>
+              <button className="admin-button delete-button" onClick={() => handleDelete(product._id)}>Delete</button>
             </div>
           </li>
         ))}
       </ul>
-      <h2>Categories</h2>
-      <ul>
+
+      <h2 className="admin-subtitle">Categories</h2>
+      <ul className="admin-category-list">
         {categories.map(category => (
-          <li key={category._id} className="admin-category">
-            <span>{category.name}</span>
-            <div>
-              <button onClick={() => handleCategoryUpdate(category)}>Update</button>
-              <button onClick={() => handleCategoryDelete(category._id)}>Delete</button>
+          <li key={category._id} className="admin-category-item">
+            <span className="admin-category-name">{category.name}</span>
+            <div className="admin-category-actions">
+              <button className="admin-button" onClick={() => handleCategoryUpdate(category)}>Update</button>
+              <button className="admin-button delete-button" onClick={() => handleCategoryDelete(category._id)}>Delete</button>
             </div>
           </li>
         ))}

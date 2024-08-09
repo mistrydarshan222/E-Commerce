@@ -45,9 +45,9 @@ const ProductDetail = () => {
             <div className="size">
               <h3>Size</h3>
               <div className="size-options">
+                <button>US-7</button>
                 <button>US-8</button>
                 <button>US-9</button>
-                <button>US-10</button>
               </div>
             </div>
             <div className="color">

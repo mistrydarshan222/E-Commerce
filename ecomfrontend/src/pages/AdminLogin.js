@@ -25,18 +25,20 @@ const AdminLogin = () => {
 
   return (
     <div className="admin-login">
-      <h1>Admin Login</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          Username:
-          <input type="text" name="username" value={admin.username} onChange={handleChange} required />
-        </label>
-        <label>
-          Password:
-          <input type="password" name="password" value={admin.password} onChange={handleChange} required />
-        </label>
-        <button type="submit">Login</button>
-      </form>
+      <div className="login-container">
+        <h1>Admin Login</h1>
+        <form onSubmit={handleLogin}>
+          <div className="input-group">
+            <label>Username</label>
+            <input type="text" name="username" value={admin.username} onChange={handleChange} required />
+          </div>
+          <div className="input-group">
+            <label>Password</label>
+            <input type="password" name="password" value={admin.password} onChange={handleChange} required />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,14 +1,19 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
-}
+  background-color: #f1f1f1; 
+  
+} */
 
 .product-detail-container {
   width: 100%;
   padding: 2rem 5%;
-  background-color: #f9f9f9;
+  background-color: white; /* Ensure the container background is white */
+  min-height: 100vh; /* Make sure the container takes at least the full height of the viewport */
+  display: flex;
+  flex-direction: column;
 }
 
 .breadcrumb {
@@ -21,13 +26,14 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+  align-items: center; /* Center the content vertically */
 }
 
 .product-detail-content .product-image {
   flex: 1 1 45%;
   display: flex;
   width: 500px!important; 
-  height: 500px!important; 
+  height: 522px!important; 
   justify-content: center;
   align-items: center;
   background: #fff;
@@ -72,6 +78,10 @@ body {
   margin-bottom: 2rem;
 }
 
+.size-options {
+  display: flex;
+}
+
 .options {
   display: flex;
   gap: 2rem;
@@ -90,7 +100,7 @@ body {
 
 .size-options button, .color-options button {
   background: #eee0;
-  border: 1px solid #ff6b1b;
+  /* border: 1px solid #ff6b1b; */
   color: #ff6b1b;
   padding: 0.5rem 1rem;
   margin-right: 0.5rem;
@@ -103,16 +113,16 @@ body {
 }
 
 .color-options .color-blue {
-  background: blue;
+  background: black;
   width: 20px;
-  height: 20px;
+  height: 35px;
   border-radius: 50%;
 }
 
 .color-options .color-beige {
   background: beige;
   width: 20px;
-  height: 20px;
+  height: 35px;
   border-radius: 50%;
 }
 

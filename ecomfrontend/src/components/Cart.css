@@ -62,6 +62,7 @@ body {
 .cart-table td button {
   background-color: #ff6b1b;
   color: #fff;
+  width: 42px;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -83,6 +84,7 @@ body {
 .cart-actions button {
   background-color: #333;
   color: #fff;
+  width: 20%!important;
   border: none;
   padding: 1rem 2rem;
   border-radius: 5px;

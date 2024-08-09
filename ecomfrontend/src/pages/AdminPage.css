@@ -57,3 +57,9 @@
   .dropzone p {
     margin: 0;
   }
+  
+  li.admin-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }

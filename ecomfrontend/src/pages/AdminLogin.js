@@ -36,7 +36,7 @@ const AdminLogin = () => {
             <label>Password</label>
             <input type="password" name="password" value={admin.password} onChange={handleChange} required />
           </div>
-          <button type="submit">Login</button>
+          <button className="submit" type="submit">Login</button>
         </form>
       </div>
     </div>

@@ -166,19 +166,3 @@
 .additional-info span {
   font-weight: bold;
 }
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.social-icons a {
-  font-size: 1.5rem;
-  color: #888;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #555;
-}

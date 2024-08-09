@@ -30,13 +30,16 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-column">
-          <h3>Follow Us</h3>
+          <h3>Follow Me</h3>
           <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
-          </div>
+            <a href="https://github.com/mistrydarshan222/" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/darshanmistry4/" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+        </div>
+
         </div>
       </div>
       <div className="footer-bottom">

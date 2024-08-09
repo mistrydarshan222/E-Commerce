@@ -7,7 +7,7 @@ import ProductListPage from './pages/ProductListPage';
 import ProductPage from './pages/ProductPage';
 import Cart from './components/Cart';
 import ShopPage from './pages/ShopPage';
-import Layout from '/components/Layout';
+import Layout from './components/layout';
 import AdminLogin from './pages/AdminLogin';
 import Checkout from './components/Checkout';
 

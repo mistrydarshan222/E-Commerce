@@ -1,0 +1,19 @@
+/* Layout.css */
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    /* Add styles for your header if needed */
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  footer {
+    /* The footer is already styled in Footer.css */
+  }
+  

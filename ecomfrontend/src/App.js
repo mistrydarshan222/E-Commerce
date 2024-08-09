@@ -7,12 +7,14 @@ import ProductListPage from './pages/ProductListPage';
 import ProductPage from './pages/ProductPage';
 import Cart from './components/Cart';
 import ShopPage from './pages/ShopPage';
+import Layout from '/components/Layout';
 import AdminLogin from './pages/AdminLogin';
 import Checkout from './components/Checkout';
 
 function App() {
   return (
     <Router>
+      <Layout>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -25,6 +27,7 @@ function App() {
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>
+      </Layout>
     </Router>
   );
 }

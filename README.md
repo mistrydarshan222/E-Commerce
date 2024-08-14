@@ -101,6 +101,7 @@ The project requires the following environment variables to be set:
 
 - `REACT_APP_BACKEND_URL`: The base URL for the backend API.
 
+
 ### Features
 
 - **Product Listings:** Display products with details such as name, description, price, and category.
@@ -110,8 +111,8 @@ The project requires the following environment variables to be set:
 
 **Admin Panel:**
 - **Admin Login-** Admin can log in with given hardcoded credentials to manage the products and categories.
-    username - Darshan
-    password - 8967753
+    **username** - Darshan
+    **password** - 8967753
 - **Product Management:** Admin can add, update, and delete products.
 - **Category Management:** Admin can add, update, and delete categories.
 - **Image Management:** Product images can be uploaded and managed efficiently, ensuring images don't need to be re-uploaded during product updates.

@@ -176,6 +176,7 @@ Steps:
     Actual Result: Pass
     ![Test Case 5 Pass](./screenshots/test_5_pass.png)
 
+
 - **Test Case 6: Add Product to Cart**
 Steps:
     1- Navigate to a product's detail page.
@@ -186,7 +187,8 @@ Steps:
     Actual Result: Pass
     ![Test Case 6 Pass](./screenshots/test_6_pass.png)
 
-- **Test Case 7: View Cart**
+
+- **Test Case 7: View Cart Page**
 Steps:
     1- Navigate to the cart page.
 
@@ -194,6 +196,7 @@ Steps:
 
     Actual Result: Pass
     ![Test Case 7 Pass](./screenshots/test_7_pass.png)
+
 
 - **Test Case 8: Proceed to Checkout**
 Steps:

@@ -185,7 +185,7 @@ Steps:
     Expected Result: The product is added to the cart and redirect to the cart page.
 
     Actual Result: Pass
-    ![Test Case 6 Pass](./screenshots/test_6_pass.png)
+    ![Test Case 6 Pass](./screenshots/Test_6_pass.png)
 
 
 - **Test Case 7: View Cart Page**
@@ -195,7 +195,7 @@ Steps:
     Expected Result: The cart displays the correct products, quantities, and total price.
 
     Actual Result: Pass
-    ![Test Case 7 Pass](./screenshots/test_7_pass.png)
+    ![Test Case 7 Pass](./screenshots/Test_7_pass.png)
 
 
 - **Test Case 8: Proceed to Checkout**
@@ -205,7 +205,7 @@ Steps:
     Expected Result: The checkout page displays the order summary and allows the user to enter shipping and payment information.
 
     Actual Result: Pass
-    ![Test Case 8 Pass](./screenshots/test_8_pass.png)
+    ![Test Case 8 Pass](./screenshots/Test_8_pass.png)
 
 - **Test Case 9: Place an Order**
 Steps:
@@ -214,7 +214,7 @@ Steps:
     Expected Result: A thank you popup appears, and the order is confirmed.
 
     Actual Result: Pass
-    ![Test Case 9 Pass](./screenshots/test_9_pass.png)
+    ![Test Case 9 Pass](./screenshots/Test_9_pass.png)
 
 - **Test Case 10: Add a new category**
 Steps:
@@ -225,5 +225,5 @@ Steps:
     Expected Result: The new category is added successfully and appears in the category list.
 
     Actual Result: Pass
-    ![Test Case 10 Pass](./screenshots/test_10_pass.png)
+    ![Test Case 10 Pass](./screenshots/Test_10_pass.png)
 

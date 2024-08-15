@@ -30,7 +30,7 @@ const HomePage = () => {
       </div>
 
       <div className="product-list-section">
-        <h2>Hot Deals</h2>
+        <h2>Featured Products</h2>
         <ProductList />
       </div>
     </div>

@@ -6,6 +6,6 @@ router.post('/products', upload.single('image'), createProduct);
 router.put('/products/:id', upload.single('image'), updateProduct);
 router.delete('/products/:id', deleteProduct);
 router.get('/products', getProducts);
-router.get('/products/:id', getProduct); // Add this
+router.get('/products/:id', getProduct);
 
 module.exports = router;

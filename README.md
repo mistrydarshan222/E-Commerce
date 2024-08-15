@@ -122,3 +122,105 @@ The project requires the following environment variables to be set:
 - **Enhanced Cart and Checkout:** Cart page displays product images, and checkout includes a summary with product details and an order total.
 - **Footer:** A consistent footer is added across all pages, featuring social media links and additional navigation.
 - **Custom Fonts:** The entire website now uses the Poppins font for a modern and clean look.
+
+**Testing**
+Each test case describes the steps, expected results, and actual results.
+
+- **Test Case 1: Show Products**
+Steps:
+   1- Navigate to the home page.
+   2- View the list of products displayed on Featured Product section.
+   
+   Expected Result: Products are displayed with their name, price, and image.
+
+   Actual Result: Pass
+    ![Test Case 1 Pass](./screenshots/test_1_pass.png)
+
+- **Test Case 2: Show Admin Dashboard**
+Steps:
+    1- Log in as an admin using the credentials.
+    2- Navigate to the admin dashboard.
+
+    Expected Result: The admin dashboard is displayed, showing the list of products and categories.
+
+    Actual Result: Pass
+    ![Test Case 2 Pass](./screenshots/test_2_pass.png)
+
+- **Test Case 3: Create a New Product**
+Steps:
+    1- Log in as an admin.
+    2- Add a new product with valid details.
+
+    Expected Result: The product is successfully added and appears in the product list.
+    
+    Actual Result: Pass
+    ![Test Case 3 Pass](./screenshots/test_3_pass.png)
+
+- **Test Case 4: Edit an Existing Product**
+Steps:
+    1- Log in as an admin.
+    2- Edit an existing product's details.
+
+    Expected Result: The product details are updated without needing to re-upload the image.
+
+    Actual Result: Pass
+    ![Test Case 4 Pass](./screenshots/test_4_pass.png)
+
+- **Test Case 5: Delete a Product**
+Steps:
+    1- Log in as an admin.
+    2- Delete a Product
+
+    Expected Result: The product is successfully removed from the list.
+
+    Actual Result: Pass
+    ![Test Case 5 Pass](./screenshots/test_5_pass.png)
+
+- **Test Case 6: Add Product to Cart**
+Steps:
+    1- Navigate to a product's detail page.
+    2- Click on "Add to Cart."
+
+    Expected Result: The product is added to the cart and redirect to the cart page.
+
+    Actual Result: Pass
+    ![Test Case 6 Pass](./screenshots/test_6_pass.png)
+
+- **Test Case 7: View Cart**
+Steps:
+    1- Navigate to the cart page.
+
+    Expected Result: The cart displays the correct products, quantities, and total price.
+
+    Actual Result: Pass
+    ![Test Case 7 Pass](./screenshots/test_7_pass.png)
+
+- **Test Case 8: Proceed to Checkout**
+Steps:
+    1- On the cart page, click "Proceed to Checkout."
+
+    Expected Result: The checkout page displays the order summary and allows the user to enter shipping and payment information.
+
+    Actual Result: Pass
+    ![Test Case 8 Pass](./screenshots/test_8_pass.png)
+
+- **Test Case 9: Place an Order**
+Steps:
+    1- On the checkout page, fill in the information and place the order.
+
+    Expected Result: A thank you popup appears, and the order is confirmed.
+
+    Actual Result: Pass
+    ![Test Case 9 Pass](./screenshots/test_9_pass.png)
+
+- **Test Case 10: Add a new category**
+Steps:
+    1- Log in to the admin dashboard
+    2- Enter a new category name in the input field.
+    3- Click on the "Add Category" button.
+
+    Expected Result: The new category is added successfully and appears in the category list.
+
+    Actual Result: Pass
+    ![Test Case 10 Pass](./screenshots/test_10_pass.png)
+
